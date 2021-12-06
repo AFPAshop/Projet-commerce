@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<head>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+
+    <main>
+        <div>
+            <center>
+                <h1>
+                    Mes produits
+                </h1>
+                <h2 style="color: red; font-weight: bold">
+                    Stocks
+                </h2>
+                <p>
+                    Welcome to les futurs DevOps
+                </p>
+                <div border="1" style="border: 1px;">
+                    <table width="30%" border="1">
+                        <tr>
+                            <td>NOM</td>
+                            <td>PRIX</td>
+                            <td>QUANTITE</td>
+                        </tr>
+                        <% if (locals.articles){ %>
+                        <% articles.forEach(function(article) { %>
+                        <tr>
+                            <td><%= article.nom %></td>
+                            <td><%= article.prix %>€</td>
+                            <td><%= article.quantite %></td>
+                            <td><button><a href="/modif_article/<%= article.id %>">Modif</a></button></td>
+                        </tr>
+                        <% }) %>
+                        <% } %>
+                        <tr>
+                            <td>TOTAL : </td>
+                            <td></td>
+                            <td><% let total=0
+                                articles.forEach(function(article){
+                                    total = total + article.quantite %>
+                                <% }) %>
+                                <%= total %>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </center>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+
+</body>
+
+</html>

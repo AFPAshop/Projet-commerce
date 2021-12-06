@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+
+
+    <% if (locals.article){ %>
+    <% article.forEach(function(article) { %>
+    <form action="../update_article/<%= article.id %>" method="post">
+        <label for="nom">Nom : </label>
+        <input type="text" name="nom" id="nom" value="<%= article.nom %>"><br>
+        <label for="prix"> Prix : </label>
+        <input type="text" name="prix" id="prix" value="<%= article.prix %>">€<br>
+        <label for="prix"> Quantitée : </label>
+        <input type="text" name="quantite" id="quantite" value="<%= article.quantite %>"><br>
+        <input type="submit" value="Envoyer">
+    </form>
+    <% }) %>
+    <% } %>
+
+</body>
+
+</html>
