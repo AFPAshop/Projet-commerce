@@ -4,14 +4,16 @@ module.exports = {
     "query": query
 };
 // Internal connection pool
-var pool = mysql.createPoolCluster({ "canRetry": true });
+var pool = mysql.createPoolCluster({
+    "canRetry": true
+});
 
 // Add main connection
 pool.add({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'nodejsBDD'
+    database: 'ecommerce2'
 });
 
 // Test de la connection
